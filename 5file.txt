@@ -1,0 +1,31 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main(){
+	fstream file;
+	file.open("text.txt", ios::out);
+	if(!file){
+		cout<<"Error, file is not created"<<endl;
+		return 0;
+	}else{
+		cout<<"File created successfully"<<endl;
+	}
+	
+	file<<"atharva..";
+	file.close();
+	
+	file.open("text.txt", ios::in);
+	if(!file){
+		cout<<"Error, file is not present"<<endl;
+		return 0;
+	}
+	char ch;
+	cout<<"File Content : "<<endl;
+	while(!file.eof()){
+		file>>ch;
+		cout<<ch;
+	}
+	file.close();
+	return 0;
+}

@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+
+class publishing{
+    public:
+    string Title;
+    float price;
+    int getData(){
+        cout<<"Enter title"<<endl;
+        cin>>Title;
+        cout<<"Enter price"<<endl;
+        cin>>price;
+        return 0;
+    }
+    
+    int printData(){
+        cout<<Title<<endl;
+        cout<<price<<endl;
+    return 0;
+
+    }
+};
+
+class book:public publishing{
+    public:
+        int pagecount;
+          int addPage(){
+              
+    cout<<"Enter book iformation"<<endl;
+
+            publishing::getData();
+            cout<<"Enter page"<<endl;
+            cin>>pagecount;
+        try{
+            if(pagecount<0){
+                throw(0);
+            }
+            if(price<0){
+                throw(0);
+            }
+        }
+        catch(int pagecount2){
+            cout<<"Pages count cannot be negative, setting pages to 0"<<endl;
+            pagecount=0;
+        }
+             return 0;
+
+          }
+        int printData1(){
+            publishing::printData();
+          
+            cout<<pagecount<<endl;
+            return 0;
+        }
+};
+
+
+class tape:public publishing{
+    public:
+        float time1;
+          int addTime(){
+                 cout<<"Enter tape information"<<endl;
+            publishing::getData();
+            cout<<"Enter Time"<<endl;
+            cin>>time1;
+            
+        try{
+            if(time1<0){
+                throw(0);
+            }
+              if(price<0){
+                throw(0);
+            }
+        }
+        catch(int time2){
+            cout<<"Time cannot be negative, setting time to 0"<<endl;
+            time1=0;
+        }
+             return 0;
+
+          }
+
+        int printData2(){
+            publishing::printData();
+          
+            cout<<time1<<endl;
+            return 0;
+        }
+};
+
+int main()
+{
+    book p;
+    p.addPage();
+    p.printData1();
+
+    tape t;
+    t.addTime();
+    t.printData2();
+
+    return 0;
+}
